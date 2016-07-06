@@ -11,8 +11,30 @@ namespace WordAddIn
 {
     public partial class ThisAddIn
     {
+        private TaskPaneControl taskPaneControl1;
+        private Microsoft.Office.Tools.CustomTaskPane taskPaneValue;
+
+        public Microsoft.Office.Tools.CustomTaskPane TaskPane
+        {
+            get
+            {
+                return taskPaneValue;
+            }
+        }
+
         private void ThisAddIn_Startup(object sender, System.EventArgs e)
         {
+            taskPaneControl1 = new TaskPaneControl();
+            taskPaneValue = this.CustomTaskPanes.Add(
+                taskPaneControl1, "MyCustomTaskPane");
+            taskPaneValue.VisibleChanged +=
+                new EventHandler(taskPaneValue_VisibleChanged);
+        }
+
+        private void taskPaneValue_VisibleChanged(object sender, System.EventArgs e)
+        {
+            Globals.Ribbons.ManageTaskPaneRibbon.showTaskPane.Checked =
+                taskPaneValue.Visible;
         }
 
         private void ThisAddIn_Shutdown(object sender, System.EventArgs e)
