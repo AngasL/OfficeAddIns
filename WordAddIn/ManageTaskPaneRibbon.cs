@@ -13,9 +13,12 @@ namespace WordAddIn
 
         }
 
-        private void showTaskPane_Click(object sender, RibbonControlEventArgs e)
+        private void ToggleTaskPane_Click(object sender, RibbonControlEventArgs e)
         {
-            Globals.ThisAddIn.TaskPane.Visible = ((RibbonToggleButton)sender).Checked;
+            var ribbonButton = (RibbonToggleButton) sender;
+            ribbonButton.Label = ribbonButton.Checked ? "Hide Task Panel" : "Show Task Panel";
+
+            Globals.ThisAddIn.TaskPane.Visible = ribbonButton.Checked;
         }
     }
 }

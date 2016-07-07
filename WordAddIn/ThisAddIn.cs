@@ -33,7 +33,7 @@ namespace WordAddIn
 
         private void taskPaneValue_VisibleChanged(object sender, System.EventArgs e)
         {
-            Globals.Ribbons.ManageTaskPaneRibbon.showTaskPane.Checked =
+            Globals.Ribbons.ManageTaskPaneRibbon.ToggleTaskPane.Checked =
                 taskPaneValue.Visible;
         }
 

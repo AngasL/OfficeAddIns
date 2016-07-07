@@ -36,7 +36,7 @@
         {
             this.tab1 = this.Factory.CreateRibbonTab();
             this.taskPaneManager = this.Factory.CreateRibbonGroup();
-            this.showTaskPane = this.Factory.CreateRibbonToggleButton();
+            this.ToggleTaskPane = this.Factory.CreateRibbonToggleButton();
             this.tab1.SuspendLayout();
             this.taskPaneManager.SuspendLayout();
             this.SuspendLayout();
@@ -50,15 +50,15 @@
             // 
             // taskPaneManager
             // 
-            this.taskPaneManager.Items.Add(this.showTaskPane);
+            this.taskPaneManager.Items.Add(this.ToggleTaskPane);
             this.taskPaneManager.Label = "Task Pane Manager";
             this.taskPaneManager.Name = "taskPaneManager";
             // 
-            // showTaskPane
+            // ToggleTaskPane
             // 
-            this.showTaskPane.Label = "Show Task Pane";
-            this.showTaskPane.Name = "showTaskPane";
-            this.showTaskPane.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.showTaskPane_Click);
+            this.ToggleTaskPane.Label = "Show Task Panel";
+            this.ToggleTaskPane.Name = "ToggleTaskPane";
+            this.ToggleTaskPane.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.ToggleTaskPane_Click);
             // 
             // ManageTaskPaneRibbon
             // 
@@ -78,7 +78,7 @@
 
         internal Microsoft.Office.Tools.Ribbon.RibbonTab tab1;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup taskPaneManager;
-        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton showTaskPane;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton ToggleTaskPane;
     }
 
     partial class ThisRibbonCollection
